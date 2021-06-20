@@ -4,7 +4,7 @@
     <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
         <span class="logo" routerLink="/">GamerRating</span>
 
-        <select name="game" class="game-input">
+        <select name="game" class="game-input" id="gameinput">
             <option value="dota-2">Dota 2</option>
             <option value="overwatch">Overwatch</option>
         </select>
@@ -12,6 +12,7 @@
         <input
             class="search-input"
             name="search"
+            id="idinput"
             ngModel
             placeholder="Enter your ID"
         />
