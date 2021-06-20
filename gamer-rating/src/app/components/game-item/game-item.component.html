@@ -1,0 +1,22 @@
+<div class="game">
+    <!--<h3>{{game.gamename}}</h3>
+    <p>{{game.rank}}</p>-->
+
+    <div class="game-thumb-container">
+        <img
+            src= {{game.image}}
+            alt= {{game.gamename}}
+            class ="game-thumbnail"
+        />
+    </div>
+    <div class="game=description">
+        <p class="game-name">{{game.gamename}}</p>
+        <div class="game-platforms" *ngIf="game.platform">
+            <img           
+              class="game-platform"
+              src="assets/images/platforms/{{ game.platform }}.svg"
+              alt="{{ game.platform }}"
+            />
+        </div>
+    </div>
+</div>
