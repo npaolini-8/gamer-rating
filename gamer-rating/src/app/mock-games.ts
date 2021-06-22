@@ -1,6 +1,6 @@
 import {Game} from './Game'
 
-export const GAMES: Game[] = [
+export var GAMES: Game[] = [
     {
         name: 'procarbine',
         rank: 'Divine 4',
