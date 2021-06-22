@@ -48,7 +48,29 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
+      margin-top: 3px;
     }
+    &-ign {
+        color: #fff;
+        font-weight: 500;
+        font-size: 16px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      &-rank {
+        color: #fff;
+        font-weight: 500;
+        font-size: 16px;
+        margin-bottom: 20px;
+        margin-left: 10px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
   
     &-platforms {
       display: flex;
