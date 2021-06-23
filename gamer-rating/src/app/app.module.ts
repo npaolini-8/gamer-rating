@@ -17,7 +17,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { GamesComponent } from './components/games/games.component';
-import { GameItemComponent } from './components/game-item/game-item.component'
+import { GameItemComponent } from './components/game-item/game-item.component';
+import { RaterComponent } from './components/rater/rater.component'
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { GameItemComponent } from './components/game-item/game-item.component'
     SearchBarComponent,
     HomeComponent,
     GamesComponent,
-    GameItemComponent
+    GameItemComponent,
+    RaterComponent
   ],
   imports: [
     BrowserModule,

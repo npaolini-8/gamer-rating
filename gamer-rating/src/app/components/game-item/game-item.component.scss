@@ -49,6 +49,7 @@
       text-overflow: ellipsis;
       overflow: hidden;
       margin-top: 3px;
+      margin-left: 3px;
     }
     &-ign {
         color: #fff;
@@ -79,5 +80,6 @@
     &-platform {
       width: 20px;
       margin-right: 10px;
+      margin-left: 10px;
     }
   }

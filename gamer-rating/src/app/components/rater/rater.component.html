@@ -1,0 +1,31 @@
+<div class="rating-container">
+
+    <button class="rate-button" (click)="onClick()">Calcuate</button>
+    <span class="gauge">
+        <mwl-gauge
+            class="two"
+            [max]="1000"
+            [dialStartAngle]="180"
+            [dialEndAngle]="0"
+            [value]="gamerrating"
+            [animated]="true"
+            [color]="getRatingColor"
+            [animationDuration]="2"
+        >
+        </mwl-gauge>
+    </span>
+    <span class="gauge">
+        <mwl-gauge
+            class="two"
+            [max]="10"
+            [dialStartAngle]="180"
+            [dialEndAngle]="0"
+            [value]="confrating"
+            [animated]="true"
+            [color]="getConfColor"
+            [animationDuration]="2"
+        >
+        </mwl-gauge>
+    </span>
+
+</div>
