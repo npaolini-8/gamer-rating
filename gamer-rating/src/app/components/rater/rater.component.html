@@ -1,20 +1,20 @@
 <div class="rating-container">
-
-    <button class="rate-button" (click)="onClick()">Calcuate</button>
-    <span class="gauge">
+    
+    <span>
         <mwl-gauge
-            class="two"
+            class="one"
             [max]="1000"
             [dialStartAngle]="180"
             [dialEndAngle]="0"
             [value]="gamerrating"
             [animated]="true"
             [color]="getRatingColor"
-            [animationDuration]="2"
+            [animationDuration]="3"
         >
         </mwl-gauge>
+        <div class="rating-text" style="color: #ffff; text-align: center;font-weight: 700;font-size: 20px;">Gamer Rating</div>
     </span>
-    <span class="gauge">
+    <span>
         <mwl-gauge
             class="two"
             [max]="10"
@@ -26,6 +26,10 @@
             [animationDuration]="2"
         >
         </mwl-gauge>
+        <div class="rating-text" style="color: #ffff; text-align: center;font-weight: 700;font-size: 20px;">Confidence</div>
     </span>
-
+    <div>
+        <button class="rating-button" (click)="onClick()">Calcuate</button>
+    </div>
 </div>
+

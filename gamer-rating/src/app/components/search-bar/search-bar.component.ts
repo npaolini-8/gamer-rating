@@ -16,8 +16,19 @@ import {HttpClient, HttpHeaders} from '@angular/common/http'
 
 export class SearchBarComponent implements OnInit {
 
-  private dotaUrl = 'https://api.opendota.com/api/players/'
+  private dotaUrl = 'https://api.opendota.com/api/players/';
   //64745357 = my dota ID for testing
+
+  private riotKey = '?api_key=RGAPI-fa0d3ddd-4613-4ffb-9c9e-18702c2eaf67';
+  private riotSumUrl = 'https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/';
+  private tftUrl = 'https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/'
+  private lolUrl = 'https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/';
+
+  private awsRiotID = 'https://3u8cel36n9.execute-api.us-east-2.amazonaws.com/rgapi/summoner/';
+
+  private trnAPI = '40403e16-8c31-4cfc-888a-607603823b23';
+
+  private csgoURL = 'https://public-api.tracker.gg/v2/csgo/standard/profile/pc/';
 
   private gamelist: Game[] = [];
 
@@ -34,8 +45,23 @@ export class SearchBarComponent implements OnInit {
 
     console.log("test");
 
-    if ( (<HTMLSelectElement>document.getElementById('gameinput')).value === 'dota-2' ) {
+    if((<HTMLSelectElement>document.getElementById('gameinput')).value === 'cs-go' && (<HTMLSelectElement>document.getElementById('idinput')).value === 'testy') {
+
+    }
+
+    else if ( (<HTMLSelectElement>document.getElementById('gameinput')).value === 'dota-2' ) {
       //console.log('works');
+
+      var dotaindex = -1;
+
+      for( var listed of GAMES) {
+        if( listed.gamename === 'Dota 2') {
+
+          dotaindex = GAMES.indexOf(listed);
+
+        }
+      }
+
       this.http.get<JSON>(this.dotaUrl + (<HTMLSelectElement>document.getElementById('idinput')).value ).subscribe(
         response => {
           console.log(response);
@@ -105,18 +131,69 @@ export class SearchBarComponent implements OnInit {
          }
   
           //this.gamelist.push( {
-          GAMES.push( {
+        if( dotaindex < 0 ) {
+          dotaindex = GAMES.length;
+        }
+          GAMES[dotaindex] = {
             name: gamedata.profile.personaname,
             gamename: 'Dota 2',
             rank: rankStr,
             percentile: rankPer,
             platform: 'pc',
-            image: 'https://cdn.windowsreport.com/wp-content/uploads/2017/01/dota-2-cant-connect-to-game-server-886x590.png'
-          })
+            image: '../../../assets/images/logos/dota-2.png'
+          };
   
         } 
       );
+    }/*
+    else if ( (<HTMLSelectElement>document.getElementById('gameinput')).value === 'tft' ) {
+
+      const testURL = 'https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/_n7jxTi5IReAxaHwVVNGuS8C58-0pltphi2juWy9fG8f6Ko';
+     
+
+      const reqHeaders = new HttpHeaders();
+      //reqHeaders.set("X-Riot-Token", "RGAPI-fa0d3ddd-4613-4ffb-9c9e-18702c2eaf67");
+      //reqHeaders.set("Accept", "*/ /*");
+      reqHeaders.set("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.106 Safari/537.36")
+      reqHeaders.set("Content-Type","application/json");
+      reqHeaders.set("Access-Control-Allow-Origin","*");
+      reqHeaders.set("Accept","application/json");
+      reqHeaders.set("Accept-Language","en-US,en;q=0.9");
+      reqHeaders.set("Accept-Charset","application/x-www-form-urlencoded; charset=UTF-8");
+      reqHeaders.set("Origin","https://developer.riotgames.com");
+      reqHeaders.set("X-Riot-Token","RGAPI-fa0d3ddd-4613-4ffb-9c9e-18702c2eaf67");
+
+      const riotHeader = { "Access-Control-Allow-Origin": "x-requested-with",
+      "Access-Control-Allow-Headers": "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Methods": "OPTIONS,GET",
+      "Content-Type": "application/json"};
+      //, {headers: riotHeader} {headers: testHeader} , {headers: reqHeaders}
+
+      console.log(this.awsRiotID + 'na1/' + (<HTMLSelectElement>document.getElementById('idinput')).value);
+      //this.awsRiotID + 'na1/' + (<HTMLSelectElement>document.getElementById('idinput')).value testURL
+
+      //this.http.get<JSON>(testURL, {headers: reqHeaders}).subscribe(
+        this.http.get<JSON>("https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/procarbine?api_key=RGAPI-fa0d3ddd-4613-4ffb-9c9e-18702c2eaf67").subscribe(
+        
+        response => {
+
+          console.log(response);
+
+        }
+      );
     }
+    else if ( (<HTMLSelectElement>document.getElementById('gameinput')).value === 'csgo' ) {
+      const csHeader = {'Content-Type':'application/json','TRN-Api-Key':this.trnAPI};
+
+      this.http.get<JSON>(this.csgoURL +  (<HTMLSelectElement>document.getElementById('idinput')).value).subscribe(
+        response => {
+
+          console.log(response);
+
+        }
+      );
+    } */
     
 
   }
