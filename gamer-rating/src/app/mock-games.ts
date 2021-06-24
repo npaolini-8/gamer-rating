@@ -1,7 +1,7 @@
 import {Game} from './Game'
 
 export var GAMES: Game[] = [
-    {
+    /*,{
         name: 'procarbine',
         rank: 'Divine 4',
         percentile: 97.7,
@@ -9,7 +9,7 @@ export var GAMES: Game[] = [
         gamename: 'Dota 2',
         platform: 'pc'
 
-    },
+    }
     {
         name: 'procarbine',
         rank: 'Iron 1',
@@ -18,5 +18,5 @@ export var GAMES: Game[] = [
         gamename: 'Teamfight Tactics',
         platform: 'pc'
 
-    }
+    }*/
 ]

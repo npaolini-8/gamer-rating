@@ -45,9 +45,58 @@ export class SearchBarComponent implements OnInit {
 
     console.log("test");
 
-    if((<HTMLSelectElement>document.getElementById('gameinput')).value === 'cs-go' && (<HTMLSelectElement>document.getElementById('idinput')).value === 'testy') {
+    if((<HTMLSelectElement>document.getElementById('gameinput')).value === 'csgo' && (<HTMLSelectElement>document.getElementById('idinput')).value === 'testy') {
+
+      GAMES.push({
+        name: "procarbine",
+        gamename: 'CS GO',
+        rank: "Master Guardian I",
+        percentile: 74.2,
+        platform: 'pc',
+        image: '../../../assets/images/logos/csgo-logo.jpg'
+      }); 
 
     }
+    else if((<HTMLSelectElement>document.getElementById('gameinput')).value === 'overwatch' && (<HTMLSelectElement>document.getElementById('idinput')).value === 'testy') {
+
+      GAMES.push({
+        name: "Procarbine",
+        gamename: 'Overwatch',
+        rank: "3153 SR",
+        percentile: 81,
+        platform: 'xbox',
+        image: '../../../assets/images/logos/overwatch-logo.jpg'
+      });
+
+
+    }
+    else if((<HTMLSelectElement>document.getElementById('gameinput')).value === 'tft' && (<HTMLSelectElement>document.getElementById('idinput')).value === 'testy') {
+
+      GAMES.push({
+        name: 'procarbine',
+        rank: 'Iron 1',
+        percentile: 1,
+        image: '../../../assets/images/logos/tft-logo.png',
+        gamename: 'Teamfight Tactics',
+        platform: 'pc'
+
+    });
+
+      
+
+    }
+    else if((<HTMLSelectElement>document.getElementById('gameinput')).value === 'lol' && (<HTMLSelectElement>document.getElementById('idinput')).value === 'testy') {
+
+      GAMES.push({
+        name: "Procarbine",
+        gamename: 'League of Legends',
+        rank: "Gold I",
+        percentile: 87,
+        platform: 'pc',
+        image: '../../../assets/images/logos/lol-logo.png'
+      });
+    }
+    
 
     else if ( (<HTMLSelectElement>document.getElementById('gameinput')).value === 'dota-2' ) {
       //console.log('works');
